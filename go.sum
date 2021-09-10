@@ -206,8 +206,10 @@ github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81P
 github.com/tinylib/msgp v1.0.2/go.mod h1:+d+yLhGm8mzTaHzB+wgMYrodPfmZrzkirds8fDWklFE=
 github.com/tinylib/msgp v1.1.0/go.mod h1:+d+yLhGm8mzTaHzB+wgMYrodPfmZrzkirds8fDWklFE=
 github.com/tinylib/msgp v1.1.2/go.mod h1:+d+yLhGm8mzTaHzB+wgMYrodPfmZrzkirds8fDWklFE=
+github.com/vishvananda/netlink v1.1.0 h1:1iyaYNBLmP6L0220aDnYQpo1QEV4t4hJ+xEEhhJH8j0=
 github.com/vishvananda/netlink v1.1.0/go.mod h1:cTgwzPIzzgDAYoQrMm0EdrjRUBkTqKYppBueQtXaqoE=
 github.com/vishvananda/netns v0.0.0-20191106174202-0a2b9b5464df/go.mod h1:JP3t17pCcGlemwknint6hfoeCVQrEMVwxRLRjXpq+BU=
+github.com/vishvananda/netns v0.0.0-20210104183010-2eb08e3e575f h1:p4VB7kIXpOQvVn1ZaTIVp+3vuYAXFe3OJEvjbUYJLaA=
 github.com/vishvananda/netns v0.0.0-20210104183010-2eb08e3e575f/go.mod h1:DD4vA1DwXk04H54A1oHXtwZmA0grkVMdPxx/VGLCah0=
 github.com/willf/bitset v1.1.9/go.mod h1:RjeCKbqT1RxIR/KWY6phxZiaY1IyutSBfGjNPySAYV4=
 github.com/willf/bitset v1.1.10/go.mod h1:RjeCKbqT1RxIR/KWY6phxZiaY1IyutSBfGjNPySAYV4=
@@ -215,6 +217,8 @@ github.com/yggdrasil-network/yggdrasil-go v0.4.0 h1:H2CS2pTjCTzNQMHFU7sEW3Ge59fQ
 github.com/yggdrasil-network/yggdrasil-go v0.4.0/go.mod h1:/iMJjOrXRsjlFgqhWOPhecOKi7xHmHiY4/En3A42Fog=
 github.com/yggdrasil-network/yggdrasil-go v0.4.1-0.20210707004512-3704ebf4cbea h1:3J6MCIkRIlkBHqSDU+ryRGDMamLgs9S7eyB4DNSdgX0=
 github.com/yggdrasil-network/yggdrasil-go v0.4.1-0.20210707004512-3704ebf4cbea/go.mod h1:/iMJjOrXRsjlFgqhWOPhecOKi7xHmHiY4/En3A42Fog=
+github.com/yggdrasil-network/yggdrasil-go v0.4.1-0.20210807175636-3613614b418d h1:1MBrVvJ1RAGRL66P7xHkdeL9T1ukr9U+w5h1XkFDi/M=
+github.com/yggdrasil-network/yggdrasil-go v0.4.1-0.20210807175636-3613614b418d/go.mod h1:/iMJjOrXRsjlFgqhWOPhecOKi7xHmHiY4/En3A42Fog=
 go.opencensus.io v0.20.1/go.mod h1:6WKK9ahsWS3RSO+PY9ZHZUfv2irvY6gN279GOPZjmmk=
 go.opencensus.io v0.20.2/go.mod h1:6WKK9ahsWS3RSO+PY9ZHZUfv2irvY6gN279GOPZjmmk=
 go.opencensus.io v0.22.3/go.mod h1:yxeiOL68Rb0Xd1ddK5vPZ/oVn4vY4Ynel7k9FzqtOIw=
@@ -296,7 +300,9 @@ golang.org/x/tools v0.0.0-20190311212946-11955173bddd/go.mod h1:LCzVGOaR6xXOjkQ3
 golang.org/x/tools v0.0.0-20190312170243-e65039ee4138/go.mod h1:LCzVGOaR6xXOjkQ3onu1FJEFr0SW1gC7cKk1uF8kGRs=
 golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
 golang.zx2c4.com/wireguard v0.0.0-20210510202332-9844c74f67ec/go.mod h1:a057zjmoc00UN7gVkaJt2sXVK523kMJcogDTEvPIasg=
+golang.zx2c4.com/wireguard v0.0.0-20210604143328-f9b48a961cd2 h1:wfOOSvHgIzTZ9h5Vb6yUFZNn7uf3bT7PeYsHOO7tYDM=
 golang.zx2c4.com/wireguard v0.0.0-20210604143328-f9b48a961cd2/go.mod h1:laHzsbfMhGSobUmruXWAyMKKHSqvIcrqZJMyHD+/3O8=
+golang.zx2c4.com/wireguard/windows v0.3.14 h1:5yIDYyrQyGkLqV+tzY4ilMNeIvQeMXAz0glZz9u179A=
 golang.zx2c4.com/wireguard/windows v0.3.14/go.mod h1:3P4IEAsb+BjlKZmpUXgy74c0iX9AVwwr3WcVJ8nPgME=
 google.golang.org/api v0.3.1/go.mod h1:6wY9I6uQWHQ8EM57III9mq/AjF+i8G65rmVagqKMtkk=
 google.golang.org/appengine v1.1.0/go.mod h1:EbEs0AVv82hx2wNQdGPgUI5lhzA/G0D9YwlJXL52JkM=

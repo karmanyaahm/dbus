@@ -12,12 +12,11 @@ import (
 	gologme "github.com/gologme/log"
 	yconf "github.com/yggdrasil-network/yggdrasil-go/src/config"
 	"github.com/yggdrasil-network/yggdrasil-go/src/core"
+	"github.com/yggdrasil-network/yggdrasil-go/src/tuntap"
 	"unifiedpush.org/go/np2p_dbus/config"
 	"unifiedpush.org/go/np2p_dbus/distributor"
 	"unifiedpush.org/go/np2p_dbus/storage"
 	"unifiedpush.org/go/np2p_dbus/utils"
-
-	"github.com/neilalexander/utp"
 )
 
 var store *storage.Storage
@@ -40,7 +39,8 @@ func main() {
 	//log.Fatalln(err)
 	//}
 
-	s, err := utp.NewSocketFromPacketConnNoClose(&c)
+	tuntap.Init(c, conf, &gologme.Logger{}, nil)
+	tuntap.Start()
 
 	//l, err := c.Listen(u, "")
 	if err != nil {
