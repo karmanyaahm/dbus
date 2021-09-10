@@ -2,21 +2,51 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
 	"strings"
+	"time"
 
+	gologme "github.com/gologme/log"
+	yconf "github.com/yggdrasil-network/yggdrasil-go/src/config"
+	"github.com/yggdrasil-network/yggdrasil-go/src/core"
 	"unifiedpush.org/go/np2p_dbus/config"
 	"unifiedpush.org/go/np2p_dbus/distributor"
 	"unifiedpush.org/go/np2p_dbus/storage"
 	"unifiedpush.org/go/np2p_dbus/utils"
+
+	"github.com/neilalexander/utp"
 )
 
 var store *storage.Storage
 var dbus *distributor.DBus
 
 func main() {
+	c := core.Core{}
+	conf := yconf.NodeConfig{Peers: []string{"tcp://[::]:9443"}}
+	conf.NewKeys()
+	err := c.Start(&conf, &gologme.Logger{})
+	if err != nil {
+		log.Fatalln(err)
+	}
+	time.Sleep(50 * time.Millisecond)
+	fmt.Println(c.GetPeers())
+	addr := c.Address()
+	log.Println("tcp://[" + addr.String() + "]:2000")
+	//u, err := url.Parse("tcp://[" + addr.String() + "]:9891")
+	//if err != nil {
+	//log.Fatalln(err)
+	//}
+
+	s, err := utp.NewSocketFromPacketConnNoClose(&c)
+
+	//l, err := c.Listen(u, "")
+	if err != nil {
+		log.Fatalln(err)
+	}
+
 	store = storage.InitStorage("np2p")
 	config.Init("np2p")
 
@@ -28,7 +58,14 @@ func main() {
 
 	http.HandleFunc("/", httpHandle)
 	utils.Log.Debugln("listening on", config.GetIPPort(), "with endpoints like", config.GetEndpointURL("<token>"), "...")
-	log.Fatal(http.ListenAndServe(config.GetIPPort(), nil))
+
+	fmt.Println(s.LocalAddr(), s.Addr())
+	for {
+		fmt.Println("WAITING")
+		cc, _ := s.Accept()
+		fmt.Println(cc.RemoteAddr(), cc.LocalAddr())
+	}
+	log.Fatal(http.Serve(s, nil))
 }
 
 func handleEndpointSettingsChanges() {
