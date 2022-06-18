@@ -71,13 +71,13 @@ func (d dBusDistrib) Register(appid, token string) (thing, reason string, err *d
 		return "REGISTRATION_FAILED", errr.Error(), nil
 	}
 	if refused != "" {
-		return "REGISTRATION_REFUSED", refused, nil
+		return "REGISTRATION_FAILED", refused, nil
 	}
 	errr = d.dbus.NewConnector(appid).NewEndpoint(token, endpoint)
 	if errr != nil {
 		//TODO should this be an error??? will handle later
 	}
-	return "NEW_ENDPOINT", endpoint, nil
+	return "REGISTRATION_SUCCEEDED", endpoint, nil
 }
 
 func (d dBusDistrib) Unregister(token string) *dbus.Error {

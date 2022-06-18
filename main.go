@@ -58,6 +58,9 @@ func httpHandle(w http.ResponseWriter, r *http.Request) {
 		var token string
 		if len(parts) > 0 {
 			token = parts[0]
+			if len(token) == 0 && len(parts) > 1 {
+				token = parts[1]
+			} // jank TODO fix
 		} else {
 			w.WriteHeader(400)
 			return
@@ -75,7 +78,7 @@ func httpHandle(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		w.WriteHeader(202)
+		w.WriteHeader(201)
 		//implement 429 counter
 
 		_ = dbus.NewConnector(conn.AppID).Message(conn.AppToken, body, "") //TODO errors
