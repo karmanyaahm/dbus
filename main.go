@@ -92,9 +92,9 @@ func httpHandle(w http.ResponseWriter, r *http.Request) {
 type handler struct {
 }
 
-func (h handler) Register(appName, token string) (endpoint, refuseReason string, err error) {
+func (h handler) Register(appName, token, description string) (endpoint, refuseReason string, err error) {
 	conn := store.NewConnection(appName, token, config.GetEndpointURL("<token>"))
-	utils.Log.Debugln("registered", conn)
+	utils.Log.Debugln("registered", conn, description)
 	if conn != nil {
 		return config.GetEndpointURL(conn.PublicToken), "", nil
 	}

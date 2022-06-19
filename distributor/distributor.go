@@ -9,7 +9,7 @@ import (
 type Distrib interface {
 	// return one of the three things for endpoint, refuse, failed respectively
 	// org.unifiedpush.Connector1.NewEndpoint is automatically called after this
-	Register(appName, token string) (endpoint, refuseReason string, err error)
+	Register(appName, token, description string) (endpoint, refuseReason string, err error)
 	Unregister(token string)
 }
 
@@ -65,8 +65,8 @@ type dBusDistrib struct {
 	dbus    DBus
 }
 
-func (d dBusDistrib) Register(appid, token string) (thing, reason string, err *dbus.Error) {
-	endpoint, refused, errr := d.handler.Register(appid, token)
+func (d dBusDistrib) Register(appid, token, description string) (thing, reason string, err *dbus.Error) {
+	endpoint, refused, errr := d.handler.Register(appid, token, "")
 	if errr != nil {
 		return "REGISTRATION_FAILED", errr.Error(), nil
 	}
