@@ -1,7 +1,9 @@
-# No Provider 2 Push D-Bus
+# NoProvider2Push D-Bus
+
+**Warning**: Only use this for development. It's not production-ready.
 
 Config:
-
+This typically goes into `~/.config/unifiedpush/distributors/np2p.conf`. The following are some possible values you can fill in (don't put in multiple of the same key into one config file).
 ```ini
 proxyurl = direct
 # for testing or if your computer is publicly exposed to a static IP for some reason (still not recommended because np2p doesn't support tls(https))
@@ -14,11 +16,18 @@ port = 30043
 IP = 192.168.0.99
 # ipv4
 IP = 2001:0DB8::123
-#ipv6
+# your ipv6 address
 
 # depends on your proxy setup
 # this defaults to a Yggdrasil IP address if you're running that in the background
 IP = 201:be::0123
+```
+
+Run this with:
+```sh
+git clone https://github.com/NoProvider2Push/dbus.git
+cd dbus
+go run .
 ```
 
 
