@@ -25,7 +25,7 @@ IP = 201:be::0123
 
 Run this with:
 ```sh
-git clone https://github.com/NoProvider2Push/dbus.git
+git clone https://github.com/<NoProvider2Push or whatever fork you're using>/dbus.git
 cd dbus
 go run .
 ```
